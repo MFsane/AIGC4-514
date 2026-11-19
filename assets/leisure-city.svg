@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260">
+  <rect width="480" height="260" fill="#EAF0F8"/>
+  <circle cx="380" cy="57" r="44" fill="#F8D38A" opacity=".9"/>
+  <path d="M0 186h480v74H0z" fill="#C9D6E6"/>
+  <path d="M34 88h92v98H34z" fill="#FFFFFF"/><path d="M34 88h92v18H34z" fill="#F2B56B"/>
+  <path d="M50 122h20v26H50zM84 122h20v26H84z" fill="#BDD4EA"/>
+  <path d="M142 64h106v122H142z" fill="#F9F3E9"/><path d="M142 64h106v20H142z" fill="#E66D5B"/>
+  <path d="M160 100h22v24h-22zM190 100h22v24h-22zM160 138h22v24h-22zM190 138h22v24h-22z" fill="#BFD3E4"/>
+  <path d="M264 98h86v88h-86z" fill="#FFFFFF"/><path d="M264 98h86v14h-86z" fill="#6CA7B8"/>
+  <path d="M278 126h24v22h-24zM306 126h24v22h-24z" fill="#C7DCEA"/>
+  <path d="M364 74h70v112h-70z" fill="#E8D4BE"/><path d="M364 74h70v16h-70z" fill="#A8754D"/>
+  <path d="M378 108h16v22h-16zM402 108h16v22h-16z" fill="#F8F2E8"/>
+  <path d="M30 186h420" stroke="#A9BED3" stroke-width="3"/>
+  <path d="M70 206h26l8 22H62zM146 214h20l7 14h-32zM330 210h22l8 18h-36z" fill="#F3B500"/>
+  <circle cx="87" cy="196" r="6" fill="#2F4858"/><path d="M82 203h10v15H82z" stroke="#2F4858" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="195" cy="198" r="6" fill="#2F4858"/><path d="M190 205h10v13H190z" stroke="#2F4858" stroke-width="4" stroke-linecap="round"/>
+  <path d="M244 50h9M249 45v10M316 52h8M320 48v8" stroke="#C2753C" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+  <text x="30" y="244" fill="#5B7182" font-family="Arial,sans-serif" font-size="12" letter-spacing="3" opacity=".75">CITY WALK</text>
+</svg>

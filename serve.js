@@ -1,0 +1,17 @@
+const http = require("http");
+const fs = require("fs");
+const path = require("path");
+const root = __dirname;
+const port = Number(process.env.PORT) || 4173;
+const types = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "application/javascript; charset=utf-8", ".svg": "image/svg+xml", ".json": "application/json; charset=utf-8", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp" };
+http.createServer((req, res) => {
+  let urlPath = decodeURIComponent((req.url || "/").split("?")[0]);
+  if (urlPath === "/") urlPath = "/index.html";
+  const file = path.join(root, path.normalize(urlPath).replace(/^([/\\])+/, ""));
+  if (!file.startsWith(root)) { res.writeHead(403); res.end("Forbidden"); return; }
+  fs.readFile(file, (err, data) => {
+    if (err) { res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" }); res.end("Not found"); return; }
+    res.writeHead(200, { "Content-Type": types[path.extname(file).toLowerCase()] || "application/octet-stream", "Cache-Control": "no-cache" });
+    res.end(data);
+  });
+}).listen(port, "127.0.0.1", () => console.log("HDU Schedule preview: http://127.0.0.1:" + port));

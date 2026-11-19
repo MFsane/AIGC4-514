@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="杭州电子科技大学校徽风格标识">
+  <defs>
+    <path id="arcTop" d="M14 48a34 34 0 0 1 68 0" fill="none"/>
+  </defs>
+  <circle cx="48" cy="48" r="47" fill="#0B3D91"/>
+  <circle cx="48" cy="48" r="42.5" fill="none" stroke="#FFFFFF" stroke-width="1.4" opacity=".92"/>
+  <circle cx="48" cy="48" r="35.5" fill="none" stroke="#FFFFFF" stroke-width=".8" opacity=".55"/>
+  <text fill="#FFFFFF" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="8.4" letter-spacing="2.2" font-weight="600">
+    <textPath href="#arcTop" startOffset="50%" text-anchor="middle">杭州电子科技大学</textPath>
+  </text>
+  <path d="M30 58c5.4-3.1 10.5-4.6 18-4.6s12.6 1.5 18 4.6" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" opacity=".85"/>
+  <path d="M32 62.5h32" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+  <text x="48" y="53" fill="#FFFFFF" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="800" letter-spacing="1.2" text-anchor="middle">HDU</text>
+  <text x="48" y="71" fill="#FFFFFF" font-family="Arial,Helvetica,sans-serif" font-size="5.1" letter-spacing="1.4" text-anchor="middle" opacity=".9">1956 · HANGZHOU</text>
+</svg>

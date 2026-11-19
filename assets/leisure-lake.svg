@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260">
+  <rect width="480" height="260" fill="#DFF1F4"/>
+  <circle cx="379" cy="66" r="36" fill="#F8D38A"/>
+  <path d="M0 154c54-52 96-47 145-17 55-65 123-70 180-1 56-32 103-24 155 13v111H0z" fill="#B8D9CF"/>
+  <path d="M0 178c70-24 134-19 197 5 65-26 133-29 283 2v75H0z" fill="#8AC6D1"/>
+  <path d="M0 202c77-17 142-11 206 10 58-20 132-24 274-3v51H0z" fill="#6FB4C4" opacity=".85"/>
+  <path d="M300 144h74v8h-74z" fill="#A8754D"/>
+  <path d="M312 126h50v18h-50z" fill="#F8F2E8"/>
+  <path d="M305 122h64l-7-10h-50z" fill="#7B5540"/>
+  <path d="M337 152v38M326 152v38M348 152v38" stroke="#A8754D" stroke-width="4"/>
+  <path d="M100 128c11-9 22-9 33 0M117 128v-18M111 110h13" fill="none" stroke="#6C8F79" stroke-width="4" stroke-linecap="round"/>
+  <path d="M397 95c8-5 15-5 24 0M409 95V81" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+  <path d="M34 191c20-8 40-8 60 0M388 183c23-7 44-5 65 5" fill="none" stroke="#D9F0F2" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+  <text x="30" y="238" fill="#3F7180" font-family="Arial,sans-serif" font-size="12" letter-spacing="3" opacity=".8">GOLDEN HOUR</text>
+</svg>

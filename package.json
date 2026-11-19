@@ -1,0 +1,11 @@
+{
+  "name": "hdu-schedule-prototype",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HDU 日程表 · 面向杭电学生的 AI 校园任务与时间规划助手（课程竞赛原型）",
+  "scripts": {
+    "start": "node serve.js",
+    "dev": "node serve.js"
+  },
+  "homepage": "https://www.myhduschedule.com"
+}

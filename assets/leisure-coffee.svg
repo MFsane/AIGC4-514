@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260">
+  <rect width="480" height="260" fill="#F4EBE1"/>
+  <circle cx="392" cy="52" r="86" fill="#EAD8C5" opacity=".7"/>
+  <path d="M0 210h480v50H0z" fill="#C9A27B"/>
+  <path d="M84 38h118v112H84z" fill="#DCEAF2" opacity=".55"/>
+  <path d="M143 38v112M84 94h118" stroke="#B7CFDD" stroke-width="3" opacity=".7"/>
+  <ellipse cx="238" cy="205" rx="84" ry="15" fill="#B58B62" opacity=".35"/>
+  <path d="M182 120h92v64a30 30 0 0 1-30 30h-32a30 30 0 0 1-30-30v-64z" fill="#FFFFFF"/>
+  <path d="M274 133h17a24 24 0 0 1 0 48h-17" fill="none" stroke="#FFFFFF" stroke-width="12"/>
+  <path d="M188 120h80v18h-80z" fill="#D9B08C"/>
+  <ellipse cx="228" cy="120" rx="40" ry="8" fill="#F1E3D3"/>
+  <path d="M211 93c-8-13 8-17 0-31M237 93c-8-13 8-17 0-31M257 95c-6-10 6-13 0-24" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+  <path d="M344 162c0-27 20-48 47-48s47 21 47 48" fill="#E9D7C3"/>
+  <path d="M332 162h118v10H332z" fill="#D6BCA0"/>
+  <path d="M379 115c-16-11-12-34 7-38 8-22 41-20 46 3 17 5 19 30 3 37" fill="#7E9B79"/>
+  <path d="M397 91c9-13 20-19 35-18" fill="none" stroke="#A7BEA1" stroke-width="5" stroke-linecap="round"/>
+  <path d="M348 224h146" stroke="#B58B62" stroke-width="3" stroke-linecap="round" opacity=".45"/>
+  <text x="30" y="236" fill="#8A6A4D" font-family="Arial,sans-serif" font-size="12" letter-spacing="3" opacity=".75">COZY CORNER</text>
+</svg>

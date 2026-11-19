@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://www.myhduschedule.com/">
+  <meta property="og:url" content="https://www.myhduschedule.com/">
+  <meta name="description" content="HDU 日程表 —— 面向杭电学生的 AI 校园任务与时间规划助手，把零散任务放进恰好的空课时间。">
+  <meta name="theme-color" content="#2563EB">
+  <title>HDU 日程表 · AI 校园时间规划</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="blue">
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite" aria-hidden="true">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M8 14h2M14 14h2M8 17.5h2M14 17.5h2"/></symbol>
+    <symbol id="i-check-square" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12.2l2.6 2.6L16.5 9"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.6 5.2L19 10l-5.4 1.8L12 17l-1.6-5.2L5 10l5.4-1.8L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18h1.5a2 2 0 0 0 1.3-3.5c-.8-.8-.2-2.2 1-2.2H18a3 3 0 0 0 3-3A9 9 0 0 0 12 3z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="9.5" cy="7.5" r="1"/><circle cx="14" cy="6.5" r="1"/><circle cx="17" cy="9.5" r="1"/></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 10h2.2a2.8 2.8 0 0 1 0 5.6H17M7 3.5c0 1-1 1.2-1 2.2M11 3.5c0 1-1 1.2-1 2.2M4 22h14"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9z"/><path d="M10 21h4"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.5 2.5 0 1 1 4.3 1.7c-1.2 1.1-1.9 1.4-1.9 3.2"/><path d="M12 17.5h.01"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4l11-11a2.8 2.8 0 0 0-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M4 17l5-5 4 4 3-3 4 4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.5 1.5"/><path d="M14 11a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.5-1.5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5"/><path d="M4 20h16"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5M15 8l4 4-4 4M19 12H9"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3z"/><path d="M12 9v5M12 18h.01"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6.1 8.5A7 7 0 0 1 19 10M18 15.5A7 7 0 0 1 5 14"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4 2v-8L3 5z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4 18-7z"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4L10 14"/><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 15v2"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3z"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-12a7 7 0 0 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 9h18M16 14h2"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a3 3 0 0 1 3-2h13v16H7a3 3 0 0 0-3 3V5z"/><path d="M4 19a3 3 0 0 1 3-3h13"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4 19a2 2 0 0 0 1.8 3h12.4A2 2 0 0 0 20 19L14 9V3"/><path d="M7 15h10"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0V4z"/><path d="M8 5H4v3a4 4 0 0 0 4 4M16 5h4v3a4 4 0 0 1-4 4M12 13v5M8 21h8"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.6"/><path d="M15 14.5a5 5 0 0 1 6 4.5"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></symbol>
+    <symbol id="i-columns" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16M15 4v16"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 5.2A11 11 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.1 3.9M6.2 6.2C3.5 8.2 2 12 2 12s3.6 7 10 7a10 10 0 0 0 4-.8"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H5l-2 2v-7a8 8 0 0 1 8-8h2a8 8 0 0 1 8 5z"/></symbol>
+    <symbol id="i-walk" viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M10 21l2-6 3 3v4M12 15l-2-5 5-2 3 4M8 9l4 2"/></symbol>
+    <symbol id="i-thumb-up" viewBox="0 0 24 24"><path d="M7 10v10H4V10h3zM7 11l4-8c2 0 3 1.5 2.5 3L12 9h6.5a2.5 2.5 0 0 1 2.4 3.1l-1.4 6A3 3 0 0 1 16.6 20H7"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 10v6M12 7h.01"/></symbol>
+    <symbol id="i-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="5" rx="2"/><path d="M5 9v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9M10 13h4"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c4.4 0 7-2.8 7-6.5 0-3.3-1.8-5.7-4.6-8.1.2 2.3-1 3.4-2 3.8.5-3.5-1-6.7-3.4-8.2.2 4-1.4 5.2-2.6 7.4C5.1 12.5 5 13.7 5 15.5 5 19.2 7.6 22 12 22z"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.6v-.2h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1z"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar__left">
+        <button class="icon-btn mobile-menu-btn" id="mobileMenuButton" aria-label="打开导航菜单" aria-expanded="false">
+          <svg class="icon"><use href="#i-menu"></use></svg>
+        </button>
+        <span class="topbar__date" id="topbarDate">11月19日 周四</span>
+      </div>
+      <a class="brand" href="#overview" aria-label="HDU 日程表首页">
+        <img class="brand__logo" src="assets/logo.svg" alt="" width="38" height="38">
+        <span class="brand__text">
+          <strong>HDU 日程表</strong>
+          <small>AI 校园时间规划</small>
+        </span>
+      </a>
+      <div class="topbar__right">
+        <button class="icon-btn notification-btn" data-page="notifications" aria-label="通知中心">
+          <svg class="icon"><use href="#i-bell"></use></svg>
+          <span class="notification-dot" id="notificationDot" hidden></span>
+        </button>
+        <button class="login-btn" id="accountButton" aria-haspopup="true" aria-expanded="false">登录</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <div class="sidebar-scrim" id="sidebarScrim" hidden></div>
+      <aside class="sidebar" id="sidebar" aria-label="主导航">
+        <div class="sidebar__inner">
+          <div class="sidebar__scroll">
+            <p class="nav-label">工作台</p>
+            <nav class="nav-list">
+              <button class="nav-item" data-page="overview"><svg class="icon"><use href="#i-grid"></use></svg><span>今日概览</span></button>
+              <button class="nav-item" data-page="schedule"><svg class="icon"><use href="#i-calendar"></use></svg><span>日程表</span><span class="nav-count" id="scheduleCount">0</span></button>
+              <button class="nav-item" data-page="tasks"><svg class="icon"><use href="#i-check-square"></use></svg><span>我的任务</span><span class="nav-count" id="taskCount">0</span></button>
+              <button class="nav-item" data-page="stats"><svg class="icon"><use href="#i-chart"></use></svg><span>数据统计</span></button>
+              <button class="nav-item" data-page="themes"><svg class="icon"><use href="#i-palette"></use></svg><span>主题更换</span></button>
+              <button class="nav-item" data-page="leisure"><svg class="icon"><use href="#i-coffee"></use></svg><span>休闲时间</span></button>
+            </nav>
+
+            <p class="nav-label nav-label--more">快捷入口</p>
+            <nav class="utility-list">
+              <button class="utility-item" data-page="notifications"><svg class="icon"><use href="#i-bell"></use></svg><span>通知中心</span><span class="utility-dot" id="sidebarNotifDot" hidden></span></button>
+              <button class="utility-item" data-page="profile"><svg class="icon"><use href="#i-user"></use></svg><span>个人中心</span></button>
+              <button class="utility-item" data-page="help"><svg class="icon"><use href="#i-help"></use></svg><span>帮助与反馈</span></button>
+              <button class="utility-item" data-page="about"><svg class="icon"><use href="#i-shield"></use></svg><span>关于与合规</span></button>
+            </nav>
+
+            <button class="ai-launch" data-action="open-ai">
+              <span class="ai-launch__icon"><svg class="icon"><use href="#i-sparkles"></use></svg></span>
+              <span class="ai-launch__copy"><strong>AI 智能排版</strong><small>把任务放进空课时间</small></span>
+              <span class="ai-launch__arrow"><svg class="icon"><use href="#i-arrow-right"></use></svg></span>
+            </button>
+
+          </div>
+
+        </div>
+      </aside>
+
+      <main class="main" id="main">
+        <div class="page" id="page"></div>
+        <footer class="app-footer">
+          <div class="app-footer__brand">
+            <img src="assets/logo.svg" alt="" width="22" height="22">
+            <span><strong>HDU 日程表</strong> · 把零散任务，放进恰好的空课时间。</span>
+          </div>
+          <div class="app-footer__links">
+            <button data-page="sources" class="source-link"><svg class="icon"><use href="#i-database"></use></svg>信息来源</button>
+            <button data-page="about">AI 使用说明</button>
+            <button data-page="about">隐私与安全</button>
+          </div>
+          <p class="app-footer__copy">课程竞赛演示原型 · 数据默认保存在本机 · 同步课表时仅请求 HDUHELP · © 2026 HDU Schedule · www.myhduschedule.com</p>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+
+  <div class="mascot" id="mascot" hidden>
+    <div class="mascot__bubble" id="mascotBubble">我是奶娃。今天也要把时间安排得明明白白！</div>
+    <button class="mascot__figure" data-action="mascot" aria-label="和奶娃助手互动">
+      <span class="mascot__tag">奶娃</span>
+      <img class="mascot-img" src="assets/naiwa.png" alt="奶娃，黄色圆润的 AI 二创表情包形象">
+      <span class="mascot__ground"></span>
+    </button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260">
+  <rect width="480" height="260" fill="#EAF2F0"/>
+  <circle cx="390" cy="54" r="38" fill="#F7D68A" opacity=".85"/>
+  <path d="M0 156c50-28 91-27 132-3 53-32 112-31 166 2 58-38 124-34 182 4v101H0z" fill="#B7D3CB"/>
+  <path d="M0 196h480v64H0z" fill="#8FC1C8"/>
+  <path d="M96 104h210v92H96z" fill="#FFFFFF" stroke="#4D5A56" stroke-width="4"/>
+  <path d="M84 104h234l-18-39H102z" fill="#394643"/>
+  <path d="M108 66h186" stroke="#7C8B85" stroke-width="4"/>
+  <path d="M126 128h42v36h-42zM212 128h42v36h-42z" fill="#E6EFEA" stroke="#4D5A56" stroke-width="3"/>
+  <path d="M132 128v36M162 128v36M218 128v36M248 128v36" stroke="#4D5A56" stroke-width="2"/>
+  <path d="M290 118h62v78h-62z" fill="#F5F1E7" stroke="#4D5A56" stroke-width="4"/><path d="M282 118h78l-10-27h-58z" fill="#394643"/>
+  <path d="M306 144h30v34h-30z" fill="#B9D2CF" stroke="#4D5A56" stroke-width="3"/>
+  <path d="M70 196h100v13H70zM310 196h100v13H310z" fill="#A8754D"/>
+  <path d="M118 209v30M158 209v30M330 209v30M370 209v30" stroke="#A8754D" stroke-width="4"/>
+  <path d="M208 216c17-14 37-14 54 0M198 232c25-20 55-20 80 0" fill="none" stroke="#D9EAE6" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+  <path d="M62 96c7-16 18-24 33-26M54 100c11-24 28-34 50-37" fill="none" stroke="#6D8C7C" stroke-width="4" stroke-linecap="round"/>
+  <path d="M384 86c9-10 17-12 27-9M394 92c8-12 18-16 29-15" fill="none" stroke="#6D8C7C" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="414" cy="120" r="5" fill="#E66D5B"/><path d="M414 125v15" stroke="#4D5A56" stroke-width="3"/>
+  <text x="30" y="244" fill="#3F7180" font-family="Arial,sans-serif" font-size="12" letter-spacing="3" opacity=".8">OLD TOWN · SHAOXING</text>
+</svg>
